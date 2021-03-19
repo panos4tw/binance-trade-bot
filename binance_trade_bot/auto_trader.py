@@ -157,7 +157,7 @@ class AutoTrader:
                # pair.to_coin, self.config.BRIDGE, False
           #  )
             transaction_fee = 0.002
-
+            #hi     
             # save ratio so we can pick the best option, not necessarily the first
             ratio_dict[pair] = (
                 coin_opt_coin_ratio - transaction_fee * self.config.SCOUT_MULTIPLIER * coin_opt_coin_ratio
