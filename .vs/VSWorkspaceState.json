@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\binance_trade_bot",
+    "\\binance_trade_bot\\models",
+    "\\config",
+    "\\data"
+  ],
+  "SelectedNode": "\\config\\apprise_example.yml",
+  "PreviewInSolutionExplorer": false
+}
