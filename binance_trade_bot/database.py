@@ -24,16 +24,18 @@ class Database:
         self.socketio_client = Client()
 
     def socketio_connect(self):
-        if self.socketio_client.connected and self.socketio_client.namespaces:
-            return True
-        try:
-            if not self.socketio_client.connected:
-                self.socketio_client.connect("http://api:5123", namespaces=["/backend"])
-            while not self.socketio_client.connected or not self.socketio_client.namespaces:
-                time.sleep(0.1)
-            return True
-        except SocketIOConnectionError:
-            return False
+        #if self.socketio_client.connected and self.socketio_client.namespaces:
+         #   return True
+      #  try:
+         #   if not self.socketio_client.connected:
+           #     self.socketio_client.connect("http://api:5123", namespaces=["/backend"])
+           # while not self.socketio_client.connected or not self.socketio_client.namespaces:
+           #     time.sleep(0.1)
+         #   return True
+     #   except SocketIOConnectionError as e:
+           # print("socket issue")
+           # print(e)
+        return False
 
     @contextmanager
     def db_session(self):
@@ -44,7 +46,7 @@ class Database:
         yield session
         session.commit()
         session.close()
-
+ 
     def set_coins(self, symbols: List[str]):
         session: Session
 
