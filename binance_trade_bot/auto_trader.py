@@ -130,7 +130,6 @@ class AutoTrader:
             return
 
         ratio_dict: Dict[Pair, float] = {}
-        ratio_dictForMe: Dict[Pair, float] = {}
 
         for pair in self.db.get_pairs_from(current_coin):
             if not pair.to_coin.enabled:
