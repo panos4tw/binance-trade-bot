@@ -154,9 +154,17 @@ class AutoTrader:
             transaction_fee = 0.002
             #hi     
             # save ratio so we can pick the best option, not necessarily the first
-            ratio_dict[pair] = (
-                coin_opt_coin_ratio - transaction_fee * self.config.SCOUT_MULTIPLIER * coin_opt_coin_ratio
-            ) - pair.ratio
+            ratio_dict[pair] = ((
+                coin_opt_coin_ratio
+                - transaction_fee * self.config.SCOUT_MULTIPLIER * coin_opt_coin_ratio
+            ) - pair.ratio) / max((
+                coin_opt_coin_ratio
+                - transaction_fee * self.config.SCOUT_MULTIPLIER * coin_opt_coin_ratio
+            ), pair.ratio )
+
+        best_pair = max(ratio_dict, key=ratio_dict.get)
+        print(f"{datetime.now()} - CONSOLE - INFO - Best Value so far is a transition from {best_pair.from_coin} to {best_pair.to_coin} with a value of {format(ratio_dict.get(best_pair),'.18f')} ")
+      
 
         # keep only ratios bigger than zero
         ratio_dict = {k: v for k, v in ratio_dict.items() if v > 0}
