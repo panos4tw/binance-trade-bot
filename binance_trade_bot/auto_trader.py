@@ -130,6 +130,7 @@ class AutoTrader:
             return
 
         ratio_dict: Dict[Pair, float] = {}
+        ratio_dictForMe: Dict[Pair, float] = {}
 
         for pair in self.db.get_pairs_from(current_coin):
             if not pair.to_coin.enabled:
@@ -166,7 +167,11 @@ class AutoTrader:
         print(f"{datetime.now()} - CONSOLE - INFO - Best Value so far is a transition from {best_pair.from_coin} to {best_pair.to_coin} with a value of {format(ratio_dict.get(best_pair),'.18f')} ")
       
 
+<<<<<<< HEAD
         # keep only ratios bigger than zero
+=======
+        # keep only ratios bigger than zeroI'
+>>>>>>> b49585a16de585896ca260f4faa11b492eff8f1c
         ratio_dict = {k: v for k, v in ratio_dict.items() if v > 0}
 
         # if we have any viable options, pick the one with the biggest ratio
